@@ -1,23 +1,25 @@
-import './App.css';
+import Preview from "./components/Preview";
+import React from "react";
+import Header from "./components/Header";
+import InputText from "./components/InputText";
 
 function App() {
+  const [userInfo, setUserInfo] = React.useState({
+    name: 'Ansh Raiyani',
+    description:'Full-Stack Developer',
+    number: '9875059447',
+    email:'anshraiyani13@gmail.com',
+    country:'India'
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="wrapper">
+        <InputText userInfo={userInfo} setUserInfo={setUserInfo} />
+        <Preview userInfo={userInfo} />
+      </div>
+    </>
   );
 }
 
